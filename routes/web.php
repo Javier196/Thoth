@@ -33,3 +33,4 @@ Route::get('/solicitudes/nueva-solicitud/{id}','HomeController@nuevasol')->name(
 Route::get('/solicitudes/nuevo/{id}/{id2}','HomeController@nuevo')->name('nuevo.solicitudes');
 Route::get('/solicitudes/ver/{id}','HomeController@ver')->name('ver.solicitudes');
 Route::get('/solicitudes/ver/rechazar/{id}/{id2}','HomeController@rechazar')->name('rechazar.solicitudes');
+Route::get('/solicitudes/aprobadas/chat', 'ChatController@index')->name('chat.solicitudes');

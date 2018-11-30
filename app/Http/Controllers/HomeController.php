@@ -102,7 +102,9 @@ public function nuevo($id , $id2)
     }
     public function aprobadas()
     {
-      return view('solicitudes.aprobadas');
+      $usuario = auth()->user()->id;
+    $aprobadas = DB::select('select a.* FROM libro a, users b, solicitud c, sol_propietario d, sol_solicitante e WHERE d.id_libro = a.id_libro AND d.id_solicitud = c.id_solicitud AND d.id_user = b.id AND c.id_status = 3 AND d.id_solicitud = e.id_solicitud AND e.id_user = ?',[$usuario]);
+      return view('solicitudes.aprobadas')->with(['aprobadas'=>$aprobadas]);
     }
     public function pendientes()
     {
